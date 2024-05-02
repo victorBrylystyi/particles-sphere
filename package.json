@@ -1,0 +1,30 @@
+{
+  "name": "ecs-gpu",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Viktor Brylistyi",
+  "license": "MIT",
+  "scripts": {
+    "dev": "webpack serve --open --config ./configs/webpack.dev.js",
+    "build": "webpack --config ./configs/webpack.dev.js"
+  },
+  "devDependencies": {
+    "@types/uuid": "^9.0.8",
+    "@webgpu/types": "^0.1.40",
+    "css-loader": "^6.10.0",
+    "csstype": "^3.1.3",
+    "html-webpack-plugin": "^5.6.0",
+    "style-loader": "^3.3.4",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "@types/three": "^0.163.0",
+    "simplex-noise": "^4.0.1",
+    "three": "^0.163.0",
+    "uuid": "^9.0.1"
+  }
+}
