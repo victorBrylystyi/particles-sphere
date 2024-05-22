@@ -111,7 +111,8 @@ export class App {
         this.gl.setPixelRatio(window.devicePixelRatio);
 
         window.addEventListener('resize', () => this.resize());
-        window.addEventListener('wheel', (e: WheelEvent) => {
+        const cont = document.querySelector('.container') as HTMLElement;
+        cont.addEventListener('scroll', () => {
 
             if (this.step > 3) {
 
@@ -150,6 +151,12 @@ export class App {
 
                     this.mesh2.position.set(0,0,0);
                     this.internalSphere2.position.set(0,0,0);
+
+                    const sceneBackground = this.scene.background as Color;
+                    if (sceneBackground.getHex('srgb') !== 0x222E37) {
+                        this.scene.background = _color.setHex(0x222E37, 'srgb');
+                    }
+
                 }
 
                 if (this.scrollDelta >= this.scrollOffsets[3] && this.scrollDelta < this.scrollOffsets[4]) {
