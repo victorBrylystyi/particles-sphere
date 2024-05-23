@@ -2,8 +2,11 @@
 import '../css/index.css';
 import { App } from './App';
 
+const isDev = process.env.NODE_ENV == "development";
+const isProd = process.env.NODE_ENV == "production";
 
-// global.Effect = App;
- 
-
-const app = new App({});
+if (isDev) {
+    const app = new App({});
+} else if (isProd) {
+    global.Effect = App;
+}

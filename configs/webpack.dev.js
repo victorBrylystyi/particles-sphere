@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlPlugin = require('html-webpack-plugin');
+const TerserPlugin = require( 'terser-webpack-plugin' );
 
 const ROOT_DIR = path.resolve(__dirname, '../');
 
@@ -41,4 +42,19 @@ module.exports = {
     },
     port: 3000,
   },
+  optimization: {
+		minimize: true,
+		minimizer: [
+			new TerserPlugin( {
+				terserOptions: {
+					keep_classnames: false,
+					keep_fnames: false,
+					output: { comments: false },
+					compress: { drop_console: true }
+				},
+				extractComments: false,
+				test: /\.[jt]s(\?.*)?$/i
+			} )
+		]
+	}
 };
