@@ -1,6 +1,7 @@
 const path = require( 'path' );
 const TerserPlugin = require( 'terser-webpack-plugin' );
 const HtmlPlugin = require('html-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 const ROOT_DIR = path.resolve(__dirname, '../');
 
@@ -32,6 +33,14 @@ module.exports = {
 			title: 'Webpack 5',
 			template: path.resolve(ROOT_DIR, 'src', 'index.html')
 		}),
+		new CopyPlugin({
+			patterns: [
+				{
+					from: path.resolve(ROOT_DIR, 'dist', 'bundle.js'),
+					to: path.resolve(ROOT_DIR, 'dist', 'bundle.txt')
+				}
+			]
+		})
 	],
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js'],
